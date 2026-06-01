@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZENTRAX — Construction & Architecture</title>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo-bg">
+        <img src="logo.png" alt="Zentrax" class="loader-logo" />
+      </div>
+      <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+      <p class="loader-text">Crafting Excellence</p>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917204656119" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.535 5.856L.057 23.215a.75.75 0 00.916.927l5.487-1.44A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.735 9.735 0 01-4.964-1.36l-.356-.212-3.685.967.984-3.594-.232-.37A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+  </a>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <div class="nav-logo-bg">
+          <img src="logo.png" alt="Zentrax" />
+          <div class="nav-brand-text">
+            <span class="nav-brand-name">ZENTRAX</span>
+            <span class="nav-brand-sub">CONSTRUCTION</span>
+          </div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#properties">Properties</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero">Home</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#properties">Properties</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content reveal">
+      <div class="hero-logo-wrap">
+        <div class="hero-logo-bg">
+          <img src="logo.png" alt="Zentrax" class="hero-logo" />
+        </div>
+        <div class="hero-brand-name">
+          <span class="hero-brand-main">ZENTRAX</span>
+          <span class="hero-brand-sub">CONSTRUCTION</span>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">Architecture &amp; Engineering Excellence</p>
+      <h1 class="hero-title">Where Vision<br /><em>Meets Execution</em></h1>
+      <p class="hero-desc">Engineering Modern Spaces with Precision &amp; Excellence</p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn-gold">Explore Projects</a>
+        <a href="#contact" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num" data-target="2018">0</span><span class="hstat-label">Founded</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-num" data-target="24">0</span><span class="hstat-suffix">/7</span><span class="hstat-label">Support</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-num" data-target="100">0</span><span class="hstat-suffix">%</span><span class="hstat-label">Commitment</span></div>
+    </div>
+    <a href="#philosophy" class="scroll-down">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </a>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy" class="section">
+    <div class="container">
+      <div class="section-tag reveal">Our Philosophy</div>
+      <h2 class="section-title reveal">We create spaces<br /><em>that inspire</em></h2>
+      <p class="section-desc reveal">At Zentrax, we believe architecture is more than buildings — it's about creating experiences. Every project is a unique journey where innovation meets tradition, and where your vision becomes our blueprint for success.</p>
+
+      <div class="philosophy-grid">
+        <div class="phil-card reveal">
+          <div class="phil-icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/><path d="M12 28l8-16 8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14.5 23h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Find a Space</h3>
+          <p>Residential &amp; Commercial Properties</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/><rect x="12" y="12" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 20h8M20 16v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Design a Space</h3>
+          <p>Architecture &amp; Interior Design</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/><path d="M12 30V18l8-8 8 8v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="17" y="22" width="6" height="8" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Build a Space</h3>
+          <p>Construction &amp; Engineering</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/><path d="M15 25l3-3 2 2 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Specialize a Space</h3>
+          <p>Smart &amp; Custom Solutions</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">
+            <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/><path d="M14 26c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="16" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Maintain a Space</h3>
+          <p>Repairs &amp; Facility Management</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="stats-section">
+    <div class="stats-overlay"></div>
+    <div class="container stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-num" data-target="50">0</span><span class="stat-suffix">+</span>
+        <p>Projects Completed</p>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item reveal">
+        <span class="stat-num" data-target="15">0</span><span class="stat-suffix">+</span>
+        <p>Years Experience</p>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item reveal">
+        <span class="stat-num" data-target="100">0</span><span class="stat-suffix">%</span>
+        <p>Client Satisfaction</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section dark-section">
+    <div class="container">
+      <div class="section-tag reveal" style="color:var(--gold)">Our Portfolio</div>
+      <h2 class="section-title reveal" style="color:var(--off-white)">Crafting Excellence Across<br /><em>Diverse Projects</em></h2>
+      <p class="section-desc reveal" style="color:var(--gray-mid)">Each project represents our commitment to innovation, quality, and timeless design.</p>
+
+      <div class="portfolio-grid">
+        <div class="port-card reveal" data-modal="vertex">
+          <div class="port-img-wrap">
+            <img src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=800&q=80" alt="Vertex Tower" loading="lazy" />
+            <div class="port-overlay">
+              <button class="port-view open-modal" data-modal="vertex">View Details</button>
+            </div>
+          </div>
+          <div class="port-info">
+            <span class="port-cat">Mixed-Use Development</span>
+            <h3>Vertex Tower</h3>
+            <span class="port-year">2025</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-modal="coastal">
+          <div class="port-img-wrap">
+            <img src="https://www.zentraxconstructions.com/coastal-residence.jpg" alt="Coastal Residence" loading="lazy" />
+            <div class="port-overlay">
+              <button class="port-view open-modal" data-modal="coastal">View Details</button>
+            </div>
+          </div>
+          <div class="port-info">
+            <span class="port-cat">Luxury Living</span>
+            <h3>Coastal Residence</h3>
+            <span class="port-year">2025</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-modal="innovation">
+          <div class="port-img-wrap">
+            <img src="https://www.zentraxconstructions.com/innovation-center.jpg" alt="Innovation Center" loading="lazy" />
+            <div class="port-overlay">
+              <button class="port-view open-modal" data-modal="innovation">View Details</button>
+            </div>
+          </div>
+          <div class="port-info">
+            <span class="port-cat">Corporate Campus</span>
+            <h3>Innovation Center</h3>
+            <span class="port-year">2025</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-modal="township">
+          <div class="port-img-wrap">
+            <img src="https://www.zentraxconstructions.com/residential-township.jpg" alt="Residential Township" loading="lazy" />
+            <div class="port-overlay">
+              <button class="port-view open-modal" data-modal="township">View Details</button>
+            </div>
+          </div>
+          <div class="port-info">
+            <span class="port-cat">Planned Community</span>
+            <h3>Residential Township</h3>
+            <span class="port-year">2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTIES FOR LEASE -->
+  <section id="properties" class="section properties-section">
+    <div class="container">
+      <div class="section-tag reveal">Available Now</div>
+      <h2 class="section-title reveal">Properties<br /><em>For Lease</em></h2>
+      <p class="section-desc reveal">Premium residential spaces built with precision and elegance — ready for immediate occupancy.</p>
+
+      <div class="prop-feature-card reveal open-modal" data-modal="hombelaku" style="cursor:pointer">
+        <div class="prop-img-col">
+          <div class="prop-img-wrap">
+            <img src="property.jpg" alt="Hombelaku Residential Building, Mysuru" />
+            <div class="prop-badge">
+              <span class="prop-badge-dot"></span>
+              Available for Lease
+            </div>
+          </div>
+        </div>
+        <div class="prop-details-col">
+          <div class="prop-tag">Residential Property</div>
+          <h3 class="prop-name">Hombelaku Residences</h3>
+          <p class="prop-location">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            #44, Hombelaku, Ilavala Hobli, Mysuru, Karnataka
+          </p>
+
+          <div class="prop-divider"></div>
+
+          <div class="prop-features-grid">
+            <div class="prop-feat">
+              <div class="prop-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div>
+                <span class="prop-feat-label">Type</span>
+                <span class="prop-feat-val">Multi-Storey Residential</span>
+              </div>
+            </div>
+            <div class="prop-feat">
+              <div class="prop-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <div>
+                <span class="prop-feat-label">Floors</span>
+                <span class="prop-feat-val">Ground + 4 Floors</span>
+              </div>
+            </div>
+            <div class="prop-feat">
+              <div class="prop-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <div>
+                <span class="prop-feat-label">Availability</span>
+                <span class="prop-feat-val">Immediate</span>
+              </div>
+            </div>
+            <div class="prop-feat">
+              <div class="prop-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div>
+                <span class="prop-feat-label">Suitable For</span>
+                <span class="prop-feat-val">Families &amp; Professionals</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="prop-divider"></div>
+
+          <div class="prop-highlights">
+            <div class="prop-highlight-item">✦ Modern architecture &amp; premium finishes</div>
+            <div class="prop-highlight-item">✦ Dedicated parking &amp; secure entry</div>
+            <div class="prop-highlight-item">✦ Prime location in Ilavala Hobli, Mysuru</div>
+            <div class="prop-highlight-item">✦ Vastu-compliant design</div>
+            <div class="prop-highlight-item">✦ 24/7 building security</div>
+          </div>
+
+          <div class="prop-divider"></div>
+
+          <div class="prop-address-box">
+            <div class="prop-address-label">Full Address</div>
+            <div class="prop-address-val">#44, Hombelaku, Ilavala Hobli,<br />Mysuru, Karnataka — India</div>
+          </div>
+
+          <div class="prop-ctas">
+            <a href="tel:7204656119" class="btn-gold">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              Enquire Now
+            </a>
+            <a href="https://wa.me/917204656119?text=Hi%2C%20I%20am%20interested%20in%20the%20property%20at%20%2344%20Hombelaku%2C%20Ilavala%20Hobli%2C%20Mysuru" class="btn-outline-dark" target="_blank">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.535 5.856L.057 23.215a.75.75 0 00.916.927l5.487-1.44A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.735 9.735 0 01-4.964-1.36l-.356-.212-3.685.967.984-3.594-.232-.37A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities" class="section">
+    <div class="container">
+      <div class="section-tag reveal">What We Offer</div>
+      <h2 class="section-title reveal">Your One-Stop<br /><em>Construction Solution</em></h2>
+      <p class="section-desc reveal">From Dream to Reality — We Guide You Through Every Phase</p>
+
+      <div class="cap-grid">
+
+        <div class="cap-card reveal">
+          <div class="cap-num">01</div>
+          <h3>Find a Space</h3>
+          <p class="cap-sub">Residential &amp; Commercial Properties</p>
+          <ul>
+            <li><strong>Luxury Apartment Rentals</strong> — Long-term stays in premium locations with modern amenities</li>
+            <li><strong>Flexible Property Leasing</strong> — Commercial and residential lease agreements tailored to your needs</li>
+            <li><strong>Property Management</strong> — Complete upkeep and administration of rented units</li>
+          </ul>
+        </div>
+
+        <div class="cap-card reveal">
+          <div class="cap-num">02</div>
+          <h3>Design a Space</h3>
+          <p class="cap-sub">Architecture &amp; Interior Design</p>
+          <ul>
+            <li><strong>Architectural Planning</strong> — Blueprints, 3D modeling, and comprehensive structural design</li>
+            <li><strong>Interior Design &amp; Styling</strong> — Bespoke furniture, lighting, and complete aesthetic planning</li>
+            <li><strong>Landscape &amp; Outdoor Design</strong> — Creating functional gardens and beautiful exterior spaces</li>
+          </ul>
+        </div>
+
+        <div class="cap-card reveal">
+          <div class="cap-num">03</div>
+          <h3>Build a Space</h3>
+          <p class="cap-sub">Construction &amp; Engineering</p>
+          <ul>
+            <li><strong>General Contracting</strong> — End-to-end project management from groundbreaking to handover</li>
+            <li><strong>Civil Engineering &amp; Structural Work</strong> — Ensuring safety and integrity of every build</li>
+            <li><strong>Renovation &amp; Remodeling</strong> — Specialized services for updating existing structures</li>
+            <li><strong>A-to-Z Building Materials</strong> — Premium cement, steel, bricks, tiles, marble, and all finishing materials</li>
+          </ul>
+        </div>
+
+        <div class="cap-card reveal">
+          <div class="cap-num">04</div>
+          <h3>Specialize a Space</h3>
+          <p class="cap-sub">Smart &amp; Custom Solutions</p>
+          <ul>
+            <li><strong>Smart Home Integration</strong> — Automation, security systems, and high-tech wiring solutions</li>
+            <li><strong>Modular Kitchen &amp; Wardrobe</strong> — Custom cabinetry and storage solutions</li>
+            <li><strong>Sustainability Consulting</strong> — Eco-friendly materials and solar energy installations</li>
+            <li><strong>Electrical &amp; Plumbing Kits</strong> — All-in-one solutions for essential utilities</li>
+          </ul>
+        </div>
+
+        <div class="cap-card reveal">
+          <div class="cap-num">05</div>
+          <h3>Maintain a Space</h3>
+          <p class="cap-sub">Repairs &amp; Facility Management</p>
+          <ul>
+            <li><strong>Post-Completion Care</strong> — Ongoing maintenance and support services</li>
+            <li><strong>Facility Management</strong> — Complete property maintenance and operations oversight</li>
+            <li><strong>Emergency Repairs</strong> — 24/7 rapid response for urgent maintenance needs</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-section dark-section">
+    <div class="container">
+      <div class="section-tag reveal" style="color:var(--gold)">Why Choose Us</div>
+      <h2 class="section-title reveal" style="color:var(--off-white)">The Zentrax<br /><em>Difference</em></h2>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">✦</div>
+          <h3>Unmatched Quality</h3>
+          <p>Every detail is executed with meticulous precision. We use only the finest materials and construction techniques.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">✦</div>
+          <h3>End-to-End Service</h3>
+          <p>From initial concept to final handover, we manage every phase of your project seamlessly.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">✦</div>
+          <h3>Timely Delivery</h3>
+          <p>We respect your time. Our rigorous project management ensures on-time, on-budget delivery every time.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-icon">✦</div>
+          <h3>24/7 Support</h3>
+          <p>Our dedicated team is always available to address your needs and ensure complete peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS TIMELINE -->
+  <section class="process-section section">
+    <div class="container">
+      <div class="section-tag reveal">Our Process</div>
+      <h2 class="section-title reveal">How We<br /><em>Work</em></h2>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-num">01</div>
+          <div class="tl-line"></div>
+          <div class="tl-content">
+            <h3>Discovery &amp; Consultation</h3>
+            <p>We begin with a thorough understanding of your vision, goals, and budget requirements.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">02</div>
+          <div class="tl-line"></div>
+          <div class="tl-content">
+            <h3>Design &amp; Planning</h3>
+            <p>Our expert team crafts detailed blueprints and 3D models tailored to your exact specifications.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">03</div>
+          <div class="tl-line"></div>
+          <div class="tl-content">
+            <h3>Construction &amp; Execution</h3>
+            <p>With precision engineering and premium materials, we bring your vision to life on schedule.</p>
+          </div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-num">04</div>
+          <div class="tl-line"></div>
+          <div class="tl-content">
+            <h3>Handover &amp; Support</h3>
+            <p>We deliver your completed project and remain available for ongoing maintenance and care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section dark-section">
+    <div class="container">
+      <div class="section-tag reveal" style="color:var(--gold)">Testimonials</div>
+      <h2 class="section-title reveal" style="color:var(--off-white)">What Our<br /><em>Clients Say</em></h2>
+      <div class="testi-carousel">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p>"Zentrax transformed our vision into an architectural masterpiece. Their attention to detail and professionalism is unmatched."</p>
+            <div class="testi-author">— Rajesh K., Mysuru</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p>"From the first consultation to the final handover, the Zentrax team exceeded every expectation. Truly world-class service."</p>
+            <div class="testi-author">— Priya M., Bangalore</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-stars">★★★★★</div>
+            <p>"We entrusted our commercial project to Zentrax and the results were spectacular. Delivered on time, on budget, and beyond our dreams."</p>
+            <div class="testi-author">— Arun S., Mysuru</div>
+          </div>
+        </div>
+        <div class="testi-controls">
+          <button class="testi-btn" id="testPrev">&#8592;</button>
+          <div class="testi-dots">
+            <span class="dot active" data-i="0"></span>
+            <span class="dot" data-i="1"></span>
+            <span class="dot" data-i="2"></span>
+          </div>
+          <button class="testi-btn" id="testNext">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section section">
+    <div class="container">
+      <div class="section-tag reveal">Get In Touch</div>
+      <h2 class="section-title reveal">Let's Create Something<br /><em>Extraordinary</em></h2>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-logo">
+            <div class="contact-logo-bg">
+              <img src="logo.png" alt="Zentrax" />
+            </div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-label">Working Hours</div>
+            <div class="cinfo-val">Mon – Sat: 9:00 AM – 7:00 PM</div>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-label">Phone</div>
+            <a href="tel:7204656119" class="cinfo-val cinfo-link">+91 72046 56119</a>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-label">Alternative</div>
+            <a href="tel:7019436720" class="cinfo-val cinfo-link">+91 70194 36720</a>
+          </div>
+          <div class="cinfo-item">
+            <div class="cinfo-label">Email</div>
+            <a href="mailto:zentrax1234@gmail.com" class="cinfo-val cinfo-link">zentrax1234@gmail.com</a>
+          </div>
+          <a href="https://wa.me/917204656119" class="whatsapp-contact" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.535 5.856L.057 23.215a.75.75 0 00.916.927l5.487-1.44A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.735 9.735 0 01-4.964-1.36l-.356-.212-3.685.967.984-3.594-.232-.37A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+
+        <form class="contact-form glass-form reveal" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="contactName" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" id="contactEmail" name="email" placeholder="Email Address" required />
+          </div>
+          <div class="form-group">
+            <input type="tel" id="contactPhone" name="phone" placeholder="Phone Number" />
+          </div>
+          <div class="form-group">
+            <select id="contactService" name="service">
+              <option value="" disabled selected>Service Category</option>
+              <option>Find a Space - Residential &amp; Commercial Properties</option>
+              <option>Design a Space - Architecture &amp; Interior Design</option>
+              <option>Build a Space - Construction &amp; Engineering</option>
+              <option>Specialize a Space - Smart &amp; Custom Solutions</option>
+              <option>Maintain a Space - Repairs &amp; Facility Management</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="contactMessage" name="message" rows="4" placeholder="Project Brief"></textarea>
+          </div>
+          <div id="formStatus" class="form-status" style="display:none;"></div>
+          <button type="submit" class="btn-gold form-submit" id="submitBtn">Send Message</button>
+        </form>
+      </div>
+
+      <!-- GOOGLE MAPS -->
+      <div class="map-section reveal">
+        <div class="map-header">
+          <div class="section-tag" style="margin-bottom:0.5rem">Visit Us</div>
+          <h3 class="map-title">Find Our Office</h3>
+          <p class="map-desc">Located in Mysuru, Karnataka — come visit us or navigate with Google Maps</p>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.0893582694093!2d76.60614307482965!3d12.309768987948141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d5f4a2084adbec9%3A0xf4fcf3522495b959!2sconnect2future!5e0!3m2!1sen!2sin!4v1767870801627!5m2!1sen!2sin"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Zentrax Location">
+          </iframe>
+        </div>
+        <div class="map-actions">
+          <a href="https://maps.app.goo.gl/RzL8NNRfus1HpPFS9" target="_blank" class="btn-gold">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Open in Google Maps
+          </a>
+          <a href="tel:7204656119" class="btn-outline">Call for Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo-bg">
+            <img src="logo.png" alt="Zentrax" class="footer-logo" />
+          </div>
+          <p>Engineering Modern Spaces with Precision &amp; Excellence. Your trusted construction and architecture partner.</p>
+          <a href="https://www.instagram.com/_zentrax_constructions_?igsh=MW9qaXJvZW5jYnl1dg==" target="_blank" class="footer-ig">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+        </div>
+        <div class="footer-links-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#capabilities">Capabilities</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#capabilities">Find a Space</a></li>
+            <li><a href="#capabilities">Design a Space</a></li>
+            <li><a href="#capabilities">Build a Space</a></li>
+            <li><a href="#capabilities">Specialize a Space</a></li>
+            <li><a href="#capabilities">Maintain a Space</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:7204656119">+91 72046 56119</a></li>
+            <li><a href="tel:7019436720">+91 70194 36720</a></li>
+            <li><a href="mailto:zentrax1234@gmail.com">zentrax1234@gmail.com</a></li>
+            <li>Mon–Sat: 9:00 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2025 Zentrax Construction. Crafted with Precision.</span>
+        <span class="footer-tagline">Engineering Modern Spaces</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROPERTY MODALS -->
+  <div id="propertyModal" class="prop-modal-overlay" role="dialog" aria-modal="true">
+    <div class="prop-modal-box">
+      <button class="prop-modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <div class="prop-modal-img-wrap">
+        <img id="modalImg" src="" alt="" />
+        <div class="prop-modal-badge" id="modalBadge"></div>
+      </div>
+      <div class="prop-modal-body">
+        <div class="prop-modal-cat" id="modalCat"></div>
+        <h3 class="prop-modal-title" id="modalTitle"></h3>
+        <div class="prop-modal-location" id="modalLocation">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <span id="modalLocationText"></span>
+        </div>
+        <p class="prop-modal-desc" id="modalDesc"></p>
+        <div class="prop-modal-meta">
+          <div class="prop-modal-meta-item">
+            <span class="prop-modal-meta-label">Status</span>
+            <span class="prop-modal-meta-val" id="modalStatus"></span>
+          </div>
+          <div class="prop-modal-meta-item">
+            <span class="prop-modal-meta-label">Price / Lease</span>
+            <span class="prop-modal-meta-val" id="modalPrice"></span>
+          </div>
+        </div>
+        <div class="prop-modal-actions">
+          <a href="#contact" class="btn-gold modal-enquire-btn">Enquire Now</a>
+          <a href="https://wa.me/917204656119" target="_blank" class="btn-outline-dark modal-wa-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" style="margin-right:6px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.122 1.535 5.856L.057 23.215a.75.75 0 00.916.927l5.487-1.44A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.735 9.735 0 01-4.964-1.36l-.356-.212-3.685.967.984-3.594-.232-.37A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
