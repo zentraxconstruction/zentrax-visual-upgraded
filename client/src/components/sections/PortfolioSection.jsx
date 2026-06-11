@@ -1,3 +1,8 @@
+import vertexImg from "../../assets/vertex.jpg";
+import coastalImg from "../../assets/cr.jpg";
+import innovationImg from "../../assets/ic.jpg";
+import townshipImg from "../../assets/jj.jpg";
+
 function PortfolioSection() {
   return (
     <section id="portfolio" className="section dark-section">
@@ -18,7 +23,7 @@ function PortfolioSection() {
           <div className="port-card" data-modal="vertex">
             <div className="port-img-wrap">
               <img
-                src="https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=800&q=82&auto=format&fit=crop"
+                src={vertexImg}
                 alt="Vertex Tower"
               />
               <div className="port-overlay">
@@ -34,9 +39,8 @@ function PortfolioSection() {
 
           <div className="port-card" data-modal="coastal">
             <div className="port-img-wrap">
-              {/* Premium luxury residential — Indian coastal high-rise */}
               <img
-                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=82&auto=format&fit=crop"
+                src={coastalImg}
                 alt="Coastal Residence"
               />
               <div className="port-overlay">
@@ -52,9 +56,8 @@ function PortfolioSection() {
 
           <div className="port-card" data-modal="innovation">
             <div className="port-img-wrap">
-              {/* Modern Indian commercial campus */}
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=82&auto=format&fit=crop"
+                src={innovationImg}
                 alt="Innovation Center"
               />
               <div className="port-overlay">
@@ -70,9 +73,8 @@ function PortfolioSection() {
 
           <div className="port-card" data-modal="township">
             <div className="port-img-wrap">
-              {/* Planned residential township — aerial view */}
               <img
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=82&auto=format&fit=crop"
+                src={townshipImg}
                 alt="Residential Township"
               />
               <div className="port-overlay">
