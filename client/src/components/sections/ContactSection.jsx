@@ -85,14 +85,19 @@ function ContactSection() {
             <div className="section-tag" style={{ marginBottom: "0.5rem" }}>
               Visit Us
             </div>
-            <h3 className="map-title">Find Our Office</h3>
-            <p className="map-desc">
-              Located in Mysuru, Karnataka — come visit us or navigate with Google Maps
+            <h3 className="map-title">ZENTRAX CONSTRUCTIONS</h3>
+            <p className="map-desc" style={{ marginBottom: 8 }}>
+              Krishana building, near Nirmithi Kendra Road, Bogadi 2nd Stage North,
+              Mysuru, Karnataka 570006
             </p>
+            <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)' }}>
+              <div>Website: <a href="https://zentraxconstructions.com" target="_blank" rel="noopener noreferrer">zentraxconstructions.com</a></div>
+              <div>Plus code: 8J55+VF Mysuru, Karnataka</div>
+            </div>
           </div>
           <div className="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.0893582694093!2d76.60614307482965!3d12.309768987948141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d5f4a2084adbec9%3A0xf4fcf3522495b959!2sconnect2future!5e0!3m2!1sen!2sin!4v1767870801627!5m2!1sen!2sin"
+              src="https://www.google.com/maps?q=ZENTRAX+CONSTRUCTIONS+Mysuru&output=embed"
               width="100%"
               height="450"
               style={{ border: 0 }}
@@ -104,7 +109,7 @@ function ContactSection() {
           </div>
           <div className="map-actions">
             <a
-              href="https://maps.app.goo.gl/RzL8NNRfus1HpPFS9"
+              href="https://www.google.com/maps/search/?api=1&query=ZENTRAX+CONSTRUCTIONS+Mysuru"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold"
