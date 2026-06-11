@@ -1,10 +1,11 @@
 import propertyLease from "../../assets/property-lease.jpg";
+import propertyImg from "../../assets/property.jpg";
 import PropertyCarousel from "./PropertyCarousel";
 
 function PropertiesSection() {
   const comingSoonPropertyImages = [
-    // Single image for the Coming Soon lease property.
-    "/images/coming-soon-1.jpeg",
+    // Use the same local image as a reliable fallback so the carousel frame shows.
+    propertyLease,
   ];
 
   return (
@@ -147,10 +148,7 @@ function PropertiesSection() {
         <div className="prop-feature-card coming-soon-card open-modal" data-modal="comingsoon" style={{ cursor: "pointer" }}>
           <div className="prop-img-col">
             <div className="prop-img-wrap">
-              <PropertyCarousel
-                images={comingSoonPropertyImages}
-                alt="Coming Soon property"
-              />
+              <img src="/images/coming-soon-1.jpeg" alt="Coming Soon property" />
               <div className="prop-badge">
                 <span className="prop-badge-dot"></span>
                 Coming Soon

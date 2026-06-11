@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import RightPopup from "../components/ui/RightPopup";
 
 export default function HomePage() {
   return (
@@ -60,6 +61,25 @@ export default function HomePage() {
           </div>
         </div>
       </main>
+
+      <RightPopup>
+        <div style={{ textAlign: 'left' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+            <div style={{ fontSize: 12, letterSpacing: '0.28em', color: '#d4af37', fontWeight: 700 }}>HIRE TODAY</div>
+          </div>
+          <h3 style={{ margin: '10px 0 6px', fontSize: 22, color: '#fff' }}>3000+ Workers Available</h3>
+          <p style={{ margin: 0, color: 'rgba(255,255,255,0.8)', fontSize: 13, lineHeight: 1.5 }}>Get instant workforce support for construction projects, site supervision, and manual labor.</p>
+          <ul style={{ marginTop: 12, paddingLeft: 18, color: 'rgba(255,255,255,0.9)', fontSize: 13 }}>
+            <li>2D 3D Plan</li>
+            <li>Construction & Lease</li>
+            <li>Labour Support</li>
+          </ul>
+          <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
+            <Link to="/signup" style={{ background: '#d4af37', color: '#081015', padding: '8px 12px', borderRadius: 8, textDecoration: 'none', fontWeight: 700 }}>Hire Workers</Link>
+            <Link to="/contact" style={{ background: 'transparent', color: '#d4af37', padding: '8px 12px', borderRadius: 8, border: '1px solid rgba(212,175,55,0.18)', textDecoration: 'none' }}>Contact</Link>
+          </div>
+        </div>
+      </RightPopup>
     </div>
   );
 }

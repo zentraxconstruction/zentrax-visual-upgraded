@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import fallbackImg from "../../assets/property.jpg";
 
 function PropertyCarousel({ images = [], alt = "Property slide" }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -75,7 +76,7 @@ function PropertyCarousel({ images = [], alt = "Property slide" }) {
       <div className="prop-carousel-track" style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
         {images.map((src, idx) => (
           <div className="prop-carousel-slide" key={idx}>
-            <img src={src} alt={`${alt} ${idx + 1}`} />
+            <img src={src} alt={`${alt} ${idx + 1}`} onError={(e)=>{ e.currentTarget.src = fallbackImg; }} />
           </div>
         ))}
       </div>
