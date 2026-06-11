@@ -91,7 +91,7 @@ function HeroSection() {
         </p>
         <div className="hero-btns">
           <a href="#contact" className="btn-gold">Hire Workers Now</a>
-          <a href="tel:+918911170406" className="btn-outline">Call +91 8911170406</a>
+          <a href="tel:+918911170406" className="btn-gold">Call +91 8911170406</a>
         </div>
       </div>
 
