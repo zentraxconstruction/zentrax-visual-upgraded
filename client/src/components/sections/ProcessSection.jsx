@@ -1,58 +1,39 @@
+const steps = [
+  { icon: "📝", title: "Client Brief", subtitle: "Understanding requirements and project ambitions." },
+  { icon: "📍", title: "Site Analysis", subtitle: "Feasibility, terrain study, and context evaluation." },
+  { icon: "🧭", title: "Concept Design", subtitle: "Early layouts and premium vision planning." },
+  { icon: "📐", title: "Detailed Design", subtitle: "Technical drawings, specifications, and refinement." },
+  { icon: "🏗️", title: "Structural Planning", subtitle: "Engineering strategy and build sequencing." },
+  { icon: "✅", title: "Approval", subtitle: "Regulatory checks and stakeholder sign-off." },
+  { icon: "🚧", title: "Execution", subtitle: "Construction begins with precision and care." },
+  { icon: "🔎", title: "Inspection", subtitle: "Quality reviews and performance assurance." },
+  { icon: "🎯", title: "Completion", subtitle: "Project handover with premium client experience." },
+];
+
 function ProcessSection() {
   return (
     <section className="process-section section">
       <div className="container">
         <div className="section-tag reveal">Our Process</div>
         <h2 className="section-title reveal">
-          How We
-          <br />
+          How We <br />
           <em>Work</em>
         </h2>
-        <div className="timeline">
-          <div className="tl-item reveal">
-            <div className="tl-num">01</div>
-            <div className="tl-line"></div>
-            <div className="tl-content">
-              <h3>Discovery &amp; Consultation</h3>
-              <p>
-                We begin with a thorough understanding of your vision, goals, and budget
-                requirements.
-              </p>
+        <p className="section-copy reveal">
+          A refined, premium workflow designed to showcase every phase of the Zentrax experience.
+        </p>
+        <div className="process-grid reveal">
+          {steps.map((step, idx) => (
+            <div className={`process-card reveal ${idx < steps.length - 1 ? "with-connector" : ""}`} key={step.title}>
+              <div className="process-card-head">
+                <span className="process-icon">{step.icon}</span>
+                <span className="process-step-number">0{idx + 1}</span>
+              </div>
+              <h3>{step.title}</h3>
+              <p>{step.subtitle}</p>
+              {idx < steps.length - 1 && <span className="process-connector" aria-hidden="true"></span>}
             </div>
-          </div>
-          <div className="tl-item reveal">
-            <div className="tl-num">02</div>
-            <div className="tl-line"></div>
-            <div className="tl-content">
-              <h3>Design &amp; Planning</h3>
-              <p>
-                Our expert team crafts detailed blueprints and 3D models tailored to your exact
-                specifications.
-              </p>
-            </div>
-          </div>
-          <div className="tl-item reveal">
-            <div className="tl-num">03</div>
-            <div className="tl-line"></div>
-            <div className="tl-content">
-              <h3>Construction &amp; Execution</h3>
-              <p>
-                With precision engineering and premium materials, we bring your vision to life on
-                schedule.
-              </p>
-            </div>
-          </div>
-          <div className="tl-item reveal">
-            <div className="tl-num">04</div>
-            <div className="tl-line"></div>
-            <div className="tl-content">
-              <h3>Handover &amp; Support</h3>
-              <p>
-                We deliver your completed project and remain available for ongoing maintenance and
-                care.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
