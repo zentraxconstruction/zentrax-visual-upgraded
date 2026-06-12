@@ -73,9 +73,7 @@ export default function App() {
             path="/manager/*"
             element={
               <ProtectedRoute allowedRole="manager">
-                <Layout>
-                  <ManagerDashboard />
-                </Layout>
+                <ManagerDashboard />
               </ProtectedRoute>
             }
           />

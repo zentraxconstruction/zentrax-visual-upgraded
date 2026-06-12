@@ -27,7 +27,7 @@ function PortfolioSection() {
                 alt="Vertex Tower"
               />
               <div className="port-overlay">
-                <button className="port-view open-modal" data-modal="vertex">View Details</button>
+                <button type="button" className="port-view open-modal" data-modal="vertex" aria-label="View Vertex Tower details">View Details</button>
               </div>
             </div>
             <div className="port-info">
@@ -44,7 +44,7 @@ function PortfolioSection() {
                 alt="Coastal Residence"
               />
               <div className="port-overlay">
-                <button className="port-view open-modal" data-modal="coastal">View Details</button>
+                <button type="button" className="port-view open-modal" data-modal="coastal" aria-label="View Coastal Residence details">View Details</button>
               </div>
             </div>
             <div className="port-info">
@@ -61,7 +61,7 @@ function PortfolioSection() {
                 alt="Innovation Center"
               />
               <div className="port-overlay">
-                <button className="port-view open-modal" data-modal="innovation">View Details</button>
+                <button type="button" className="port-view open-modal" data-modal="innovation" aria-label="View Innovation Center details">View Details</button>
               </div>
             </div>
             <div className="port-info">
@@ -78,7 +78,7 @@ function PortfolioSection() {
                 alt="Residential Township"
               />
               <div className="port-overlay">
-                <button className="port-view open-modal" data-modal="township">View Details</button>
+                <button type="button" className="port-view open-modal" data-modal="township" aria-label="View Residential Township details">View Details</button>
               </div>
             </div>
             <div className="port-info">

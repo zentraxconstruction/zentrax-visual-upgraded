@@ -15,47 +15,11 @@ export default function DashboardLayout({ title, navItems, children }) {
 
   return (
     <div className="dash-shell">
-      {/* ── Sidebar ────────────────────────────────────── */}
-      <aside className={`dash-sidebar ${sidebarOpen ? "open" : ""}`}>
-        <div className="dash-brand">
-          <span className="dash-brand-name">ZENTRAX</span>
-          <span className="dash-brand-sub">CONSTRUCTION</span>
-        </div>
-
-        <nav className="dash-nav">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              className={({ isActive }) => `dash-nav-link ${isActive ? "active" : ""}`}
-              onClick={() => setSidebarOpen(false)}
-            >
-              <span className="dash-nav-icon">{item.icon}</span>
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
-
-        <div className="dash-user-card">
-          <div className="dash-user-avatar">{user?.name?.[0]?.toUpperCase()}</div>
-          <div>
-            <div className="dash-user-name">{user?.name}</div>
-            <div className="dash-user-role">{user?.role}</div>
-          </div>
-        </div>
-
-        <button className="dash-logout-btn" onClick={handleLogout}>
-          Sign Out
-        </button>
-      </aside>
-
       {/* Overlay for mobile */}
       {sidebarOpen && (
         <div className="dash-overlay" onClick={() => setSidebarOpen(false)} />
       )}
 
-      {/* ── Main ───────────────────────────────────────── */}
       <main className="dash-main">
         <header className="dash-header">
           <button
@@ -68,7 +32,43 @@ export default function DashboardLayout({ title, navItems, children }) {
           <h1 className="dash-page-title">{title}</h1>
         </header>
 
-        <div className="dash-content">{children}</div>
+        <div className="dash-main-inner">
+          <aside className={`dash-sidebar ${sidebarOpen ? "open" : ""}`}>
+            <div className="dash-brand">
+              <span className="dash-brand-name">ZENTRAX</span>
+              <span className="dash-brand-sub">CONSTRUCTION</span>
+            </div>
+
+            <nav className="dash-nav">
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.end}
+                  className={({ isActive }) => `dash-nav-link ${isActive ? "active" : ""}`}
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <span className="dash-nav-icon">{item.icon}</span>
+                  {item.label}
+                </NavLink>
+              ))}
+            </nav>
+
+            <div className="dash-user-card">
+              <div className="dash-user-avatar">{user?.name?.[0]?.toUpperCase()}</div>
+              <div>
+                <div className="dash-user-name">{user?.name}</div>
+                <div className="dash-user-role">{user?.role}</div>
+              </div>
+            </div>
+
+            <button className="dash-logout-btn" onClick={handleLogout}>
+              Sign Out
+            </button>
+          </aside>
+
+          <section className="dash-content">{children}</section>
+        </div>
       </main>
     </div>
   );

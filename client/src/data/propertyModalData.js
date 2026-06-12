@@ -1,3 +1,8 @@
+import vertexImg from "../assets/vertex.jpg";
+import coastalImg from "../assets/cr.jpg";
+import innovationImg from "../assets/ic.jpg";
+import townshipImg from "../assets/jj.jpg";
+
 const MODAL_DATA = {
   vertex: {
     title: "Vertex Tower",
@@ -7,10 +12,8 @@ const MODAL_DATA = {
     status: "Completed - 2025",
     price: "Contact for Pricing",
     badge: "Commercial & Residential",
-    images: [
-      "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=800&q=80",
-    ],
-    img: "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=800&q=80",
+    images: [vertexImg],
+    img: vertexImg,
   },
   coastal: {
     title: "Coastal Residence",
@@ -20,10 +23,8 @@ const MODAL_DATA = {
     status: "Completed - 2025",
     price: "Available on Request",
     badge: "Luxury Residential",
-    images: [
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
-    ],
-    img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+    images: [coastalImg],
+    img: coastalImg,
   },
   innovation: {
     title: "Innovation Center",
@@ -33,10 +34,8 @@ const MODAL_DATA = {
     status: "Completed - 2025",
     price: "Lease Enquiry Open",
     badge: "Corporate Campus",
-    images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-    ],
-    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+    images: [innovationImg],
+    img: innovationImg,
   },
   township: {
     title: "Residential Township",
@@ -46,10 +45,8 @@ const MODAL_DATA = {
     status: "Completed - 2024",
     price: "Units Available",
     badge: "Planned Community",
-    images: [
-      "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
-    ],
-    img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
+    images: [townshipImg],
+    img: townshipImg,
   },
   hombelaku: {
     title: "Hombelaku Residences",

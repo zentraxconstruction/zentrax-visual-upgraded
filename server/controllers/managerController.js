@@ -1,3 +1,4 @@
+const User          = require("../models/User");
 const Project       = require("../models/Project");
 const Milestone     = require("../models/Milestone");
 const { Upload, Specification } = require("../models/index");
@@ -16,29 +17,48 @@ const getMyProjects = async (req, res) => {
 
 // POST /api/manager/projects
 const addProject = async (req, res) => {
-  // Accept form-data or json. If multipart, fields are in req.body and files in req.files
   try {
     console.log('[MANAGER] addProject - req.user:', req.user ? req.user._id : null);
     console.log('[MANAGER] addProject - body:', req.body);
-    console.log('[MANAGER] addProject - files:', Array.isArray(req.files) ? req.files.map(f=>f.originalname) : req.files);
+    console.log('[MANAGER] addProject - files:', req.files);
 
-    const { title, description, location, status, draft } = req.body || {};
-    if (!title) return res.status(400).json({ success: false, message: "Title required" });
+    const { title, description, location, status } = req.body;
+
+    if (!title) {
+      return res.status(400).json({
+        success: false,
+        message: "Title required",
+      });
+    }
+
+    // Get Cloudinary URLs
+    const imageUrls = Array.isArray(req.files)
+      ? req.files
+          .map((file) => file.path || file.url || file.secure_url || file.secureUrl)
+          .filter(Boolean)
+      : [];
+
+    console.log('[MANAGER] addProject - imageUrls:', imageUrls);
 
     const project = await Project.create({
       title,
       description,
       location,
-      status: status || (draft === '1' || draft === 'true' ? 'draft' : 'pending'),
+      status: status || "pending",
       managerId: req.user._id,
+      images: imageUrls,
     });
 
-    // NOTE: file saving / uploads not implemented here. Attachments can be saved
-    // via Upload model or external storage in a follow-up change.
-
-    res.json({ success: true, id: project._id });
+    res.json({
+      success: true,
+      id: project._id,
+      images: imageUrls,
+    });
   } catch (err) {
-    res.status(500).json({ success: false, message: err.message });
+    res.status(500).json({
+      success: false,
+      message: err.message,
+    });
   }
 };
 
@@ -50,6 +70,16 @@ const updateProgress = async (req, res) => {
       { _id: req.params.id, managerId: req.user._id },
       { completion, status }
     );
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+const deleteProject = async (req, res) => {
+  try {
+    const project = await Project.findOneAndDelete({ _id: req.params.id, managerId: req.user._id });
+    if (!project) return res.status(404).json({ success: false, message: "Project not found or not owned by manager" });
     res.json({ success: true });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
@@ -104,6 +134,37 @@ const addUpload = async (req, res) => {
   }
 };
 
+const getClients = async (req, res) => {
+  try {
+    const data = await User.find({ role: "client" }).sort({ createdAt: -1 });
+    res.json({ success: true, data });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+const addClient = async (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ success: false, message: "Name, email and password are required" });
+  }
+  try {
+    const user = await User.create({ name, email, password, role: "client" });
+    res.json({ success: true, id: user._id });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+const removeClient = async (req, res) => {
+  try {
+    await User.findOneAndDelete({ _id: req.params.id, role: "client" });
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
 const getUploads = async (req, res) => {
   try {
     const data = await Upload.find({ projectId: req.params.id }).sort({ createdAt: -1 });
@@ -136,6 +197,8 @@ const addSpec = async (req, res) => {
 module.exports = {
   getMyProjects, addProject, updateProgress,
   getMilestones, addMilestone, toggleMilestone,
+  deleteProject,
+  getClients, addClient, removeClient,
   addUpload, getUploads,
   getSpecs, addSpec,
 };
