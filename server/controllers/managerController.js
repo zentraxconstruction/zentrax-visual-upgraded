@@ -1,3 +1,4 @@
+const User          = require("../models/User");
 const Project       = require("../models/Project");
 const Milestone     = require("../models/Milestone");
 const { Upload, Specification } = require("../models/index");
@@ -75,6 +76,16 @@ const updateProgress = async (req, res) => {
   }
 };
 
+const deleteProject = async (req, res) => {
+  try {
+    const project = await Project.findOneAndDelete({ _id: req.params.id, managerId: req.user._id });
+    if (!project) return res.status(404).json({ success: false, message: "Project not found or not owned by manager" });
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
 // ── Milestones ────────────────────────────────────────────────────────────────
 const getMilestones = async (req, res) => {
   try {
@@ -123,6 +134,37 @@ const addUpload = async (req, res) => {
   }
 };
 
+const getClients = async (req, res) => {
+  try {
+    const data = await User.find({ role: "client" }).sort({ createdAt: -1 });
+    res.json({ success: true, data });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+const addClient = async (req, res) => {
+  const { name, email, password } = req.body;
+  if (!name || !email || !password) {
+    return res.status(400).json({ success: false, message: "Name, email and password are required" });
+  }
+  try {
+    const user = await User.create({ name, email, password, role: "client" });
+    res.json({ success: true, id: user._id });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+const removeClient = async (req, res) => {
+  try {
+    await User.findOneAndDelete({ _id: req.params.id, role: "client" });
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
 const getUploads = async (req, res) => {
   try {
     const data = await Upload.find({ projectId: req.params.id }).sort({ createdAt: -1 });
@@ -155,6 +197,8 @@ const addSpec = async (req, res) => {
 module.exports = {
   getMyProjects, addProject, updateProgress,
   getMilestones, addMilestone, toggleMilestone,
+  deleteProject,
+  getClients, addClient, removeClient,
   addUpload, getUploads,
   getSpecs, addSpec,
 };
