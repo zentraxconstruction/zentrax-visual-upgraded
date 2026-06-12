@@ -48,9 +48,22 @@ body.loading { overflow: hidden; }
 
 .loader-inner { text-align: center; }
 
-.loader-logo {
-  width: 260px; margin-bottom: 2.5rem;
-  animation: logoPulse 2s ease-in-out infinite;
+/* Large textual loader title (modern, centered) */
+.loader-title-wrap{margin-bottom:1.2rem}
+.loader-title{
+  font-family: var(--font-head);
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  letter-spacing: 0.6em;
+  color: #ddd;
+  font-weight: 600;
+  margin: 0 0 0.6rem 0;
+  text-transform: uppercase;
+}
+.loader-underline{width:360px;height:3px;margin:0 auto;background:#fff;opacity:0.08}
+
+@media (max-width:680px){
+  .loader-title{font-size:2.4rem;letter-spacing:0.28em}
+  .loader-underline{width:220px}
 }
 
 @keyframes logoPulse {
@@ -1018,11 +1031,20 @@ body.loading { overflow: hidden; }
   width: 100%; padding: 1rem 1.2rem;
   background: rgba(255,255,255,0.8); border: 1px solid rgba(201,168,76,0.2);
   border-radius: 3px; font-family: var(--font-body); font-size: 0.9rem;
-  color: var(--dark); outline: none; transition: border-color 0.3s;
+  color: #000000 !important; outline: none; transition: border-color 0.3s;
   -webkit-appearance: none;
+  -webkit-text-fill-color: #000000 !important;
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: var(--gray-mid); }
+
+/* Autofill / browser styles: ensure autofilled text is visible */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus { border-color: var(--gold); }

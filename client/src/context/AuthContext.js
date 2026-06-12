@@ -35,6 +35,17 @@ export function AuthProvider({ children }) {
     return data.role;
   }, []);
 
+  const adminLogin = useCallback(async (email, password) => {
+    email = email?.trim().toLowerCase();
+    password = password?.trim();
+    const data = await api.post("/admin/auth/login", { email, password });
+    if (!data.success) throw new Error(data.message);
+    localStorage.setItem("zx_token", data.token);
+    setToken(data.token);
+    setUser({ id: data.id, name: "Admin", email: data.email, role: data.role });
+    return data.role;
+  }, []);
+
   const logout = useCallback(async () => {
     try {
       await api.post("/auth/logout", {});
@@ -51,7 +62,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, login, adminLogin, logout }}>
       {children}
     </AuthContext.Provider>
   );

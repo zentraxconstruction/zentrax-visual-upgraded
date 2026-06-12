@@ -40,12 +40,15 @@ const addProject = async (req, res) => {
 
     console.log('[MANAGER] addProject - imageUrls:', imageUrls);
 
+    const clientId = req.body.clientId || req.body.client || undefined;
+
     const project = await Project.create({
       title,
       description,
       location,
       status: status || "pending",
       managerId: req.user._id,
+      clientId: clientId || undefined,
       images: imageUrls,
     });
 

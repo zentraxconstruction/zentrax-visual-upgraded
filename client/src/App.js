@@ -8,6 +8,8 @@ import LandingPage      from "./pages/LandingPage";
 import LoginPage        from "./pages/LoginPage";
 import SignupPage       from "./pages/SignupPage";
 import AdminDashboard   from "./pages/AdminDashboard";
+import AdminLoginPage    from "./pages/AdminLoginPage";
+import AdminForgotPassword from "./pages/AdminForgotPassword";
 import ManagerDashboard from "./pages/ManagerDashboard";
 import Layout from "./components/layout/Layout";
 import ClientDashboard  from "./pages/ClientDashboard";
@@ -53,6 +55,8 @@ export default function App() {
           <Route path="/"      element={<Zentrax />} />
           <Route path="/landing" element={<Zentrax />} />
           <Route path="/login"  element={<LoginPage />} />
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+          <Route path="/admin/forgot" element={<AdminForgotPassword />} />
           <Route path="/signup" element={<SignupPage />} />
 
           {/* Dashboard shortcut — redirects by role */}
