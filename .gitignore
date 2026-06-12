@@ -10,3 +10,4 @@ build/
 client/build/
 
 .vscode/
+.vercel

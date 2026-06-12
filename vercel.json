@@ -1,7 +1,26 @@
 {
-  "buildCommand": "cd client && npm install && npm run build",
-  "outputDirectory": "client/build",
-  "env": {
-    "REACT_APP_API_URL": "@react_app_api_url"
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/$1"
+    }
+  ]
 }

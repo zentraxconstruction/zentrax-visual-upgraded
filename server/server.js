@@ -20,7 +20,10 @@ app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (like mobile apps or curl)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1) return callback(null, true);
+    const hostname = new URL(origin).hostname;
+    if (allowedOrigins.indexOf(origin) !== -1 || hostname.endsWith(".vercel.app")) {
+      return callback(null, true);
+    }
     callback(new Error(`CORS policy: origin '${origin}' not allowed`));
   },
   credentials: true,
@@ -68,6 +71,7 @@ app.use((err, req, res, next) => {
 });
 
 // ── Start ─────────────────────────────────────────────────────────────────────
+if (require.main === module) {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 ZENTRAX server → http://localhost:${PORT}`);
@@ -79,3 +83,12 @@ app.listen(PORT, () => {
     console.error("Failed to run seedAdmin:", e.message || e);
   }
 });
+} else {
+  try {
+    const seedAdmin = require("./seeds/seedAdmin");
+    seedAdmin();
+  } catch (e) {
+    console.error("Failed to run seedAdmin:", e.message || e);
+  }
+  module.exports = app;
+}
