@@ -2,6 +2,7 @@ const router = require("express").Router();
 const rateLimit = require("express-rate-limit");
 const { body, validationResult } = require("express-validator");
 const ctrl = require("../controllers/adminAuthController");
+const { requireAdminAuth } = require("../middleware/adminAuth");
 
 const loginLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, message: { success: false, message: "Too many login attempts, try later" } });
 
@@ -17,6 +18,8 @@ router.post(
   },
   ctrl.login
 );
+
+router.get("/me", requireAdminAuth, (req, res) => ctrl.me(req, res));
 
 router.post("/forgot", body("email").isEmail(), (req, res, next) => {
   const errors = validationResult(req);

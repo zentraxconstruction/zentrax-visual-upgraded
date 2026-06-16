@@ -6,11 +6,14 @@ const cors     = require("cors");
 const connectDB = require("./config/db");
 
 const app = express();
+// Restrict trust to a single proxy (dev proxy like CRA) to avoid permissive setting
+app.set("trust proxy", 1);
 
 // ── Connect MongoDB ───────────────────────────────────────────────────────────
 connectDB();
 
 // ── Middleware ────────────────────────────────────────────────────────────────
+const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   (process.env.CLIENT_URL || "http://localhost:3000"),
   "http://localhost:3001",
@@ -20,10 +23,26 @@ app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (like mobile apps or curl)
     if (!origin) return callback(null, true);
-    const hostname = new URL(origin).hostname;
-    if (allowedOrigins.indexOf(origin) !== -1 || hostname.endsWith(".vercel.app")) {
-      return callback(null, true);
+
+    // Normalize origin by stripping trailing slashes
+    let norm = origin.replace(/\/+$/, "");
+    try {
+      const hostname = new URL(norm).hostname;
+      // Allow if exact match, hostname match, or vercel deployments
+      if (
+        allowedOrigins.includes(norm) ||
+        allowedOrigins.includes(origin) ||
+        allowedOrigins.includes(hostname) ||
+        hostname.endsWith(".vercel.app") ||
+        norm === `http://localhost:${PORT}`
+      ) {
+        return callback(null, true);
+      }
+    } catch (err) {
+      // If origin is malformed, reject
+      return callback(new Error(`CORS policy: origin '${origin}' not allowed`));
     }
+
     callback(new Error(`CORS policy: origin '${origin}' not allowed`));
   },
   credentials: true,

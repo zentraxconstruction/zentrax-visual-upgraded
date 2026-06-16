@@ -39,7 +39,6 @@ async function seedDatabase() {
     return u;
   }
 
-  const admin = await upsertUser("Admin User", "admin@zentrax.com", "admin123", "admin");
   const manager = await upsertUser("Ravi Kumar", "manager@zentrax.com", "manager123", "manager");
   const client = await upsertUser("Priya Sharma", "client@zentrax.com", "client123", "client");
 
@@ -68,8 +67,9 @@ async function seedDatabase() {
   }
 
   console.log("✅ Seed complete. Demo credentials:");
-  console.log("   admin@zentrax.com   / admin123");
+    console.log("   manager@zentrax.com / manager123");
   console.log("   manager@zentrax.com / manager123");
+    console.log("   Official admin credentials are seeded separately in the Admin collection.");
   console.log("   client@zentrax.com  / client123");
 }
 

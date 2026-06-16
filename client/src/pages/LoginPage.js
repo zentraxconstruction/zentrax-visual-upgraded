@@ -3,15 +3,10 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "./LoginPage.css";
 
-const DEMO_CREDS = [
-  { label: "Admin",   email: "admin@zentrax.com",   password: "admin123"   },
-  { label: "Manager", email: "manager@zentrax.com", password: "manager123" },
-  { label: "Client",  email: "client@zentrax.com",  password: "client123"  },
-];
 
 export default function LoginPage() {
-  const { user, login } = useAuth();
-  const navigate        = useNavigate();
+  const { user, login, adminLogin } = useAuth();
+  const navigate                     = useNavigate();
 
   const [email,    setEmail]    = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +24,14 @@ export default function LoginPage() {
       const role = await login(email, password);
       navigate(`/${role}`, { replace: true });
     } catch (err) {
-      setError(err.message || "Login failed");
+      // If client auth fails, try admin auth as a fallback
+      try {
+        const role = await adminLogin(email, password);
+        navigate(`/${role}`, { replace: true });
+        return;
+      } catch (adminErr) {
+        setError(adminErr.message || err.message || "Login failed");
+      }
     } finally {
       setLoading(false);
     }
@@ -55,7 +57,7 @@ export default function LoginPage() {
         </div>
 
         <div className="login-divider" />
-        <p className="login-title">Client Portal</p>
+        <p className="login-title">Login Portal</p>
 
         {/* Error */}
         {error && <div className="login-error">{error}</div>}
@@ -93,15 +95,7 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Demo credentials */}
-        <div className="demo-creds">
-          <p>Demo Credentials — click to fill</p>
-          {DEMO_CREDS.map((c) => (
-            <code key={c.label} onClick={() => fillDemo(c)}>
-              {c.label}: {c.email} / {c.password}
-            </code>
-          ))}
-        </div>
+
 
         <div className="login-footer" style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           <Link to="/signup">Create an account</Link>

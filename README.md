@@ -90,7 +90,7 @@ The `"proxy": "http://localhost:5000"` in `client/package.json` forwards all
 
 | Role    | Email                 | Password    |
 |---------|-----------------------|-------------|
-| Admin   | admin@zentrax.com     | admin123    |
+| Admin   | zentrax1234@gmail.com | zentraxconstructionabc@4321 |
 | Manager | manager@zentrax.com   | manager123  |
 | Client  | client@zentrax.com    | client123   |
 

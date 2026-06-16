@@ -20,14 +20,18 @@ const login = async (req, res) => {
   let { email, password } = req.body;
   email = email?.trim().toLowerCase();
 
+  console.log("🔐 Admin login attempt:", email);
+
   if (!email || !password) return res.status(400).json({ success: false, message: "Email and password required" });
   if (email !== ADMIN_EMAIL) return res.status(401).json({ success: false, message: "Unauthorized Admin Email." });
 
   try {
     const admin = await Admin.findOne({ email }).select("+password");
+    console.log("🔍 Admin lookup result:", admin ? `${admin.email} (${admin.role})` : "not found");
     if (!admin) return res.status(401).json({ success: false, message: "Invalid credentials" });
 
     const match = await admin.matchPassword(password);
+    console.log("🔑 Admin password match:", match);
     if (!match) return res.status(401).json({ success: false, message: "Invalid credentials" });
 
     const token = signToken(admin._id);
@@ -106,3 +110,23 @@ const resetPassword = async (req, res) => {
 };
 
 module.exports = { login, forgot, verifyOtp, resetPassword };
+
+// GET /api/admin/auth/me
+const me = async (req, res) => {
+  // If middleware attached admin to the request, return it; otherwise attempt to read token
+  if (req.admin) return res.json({ success: true, admin: req.admin });
+
+  const token = req.headers["x-auth-token"] || (req.headers.authorization?.startsWith("Bearer ") ? req.headers.authorization.split(" ")[1] : null);
+  if (!token) return res.status(401).json({ success: false, message: "Unauthorized — no token" });
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const admin = await Admin.findById(decoded.id).select("-password");
+    if (!admin) return res.status(401).json({ success: false, message: "Admin not found" });
+    return res.json({ success: true, admin });
+  } catch (err) {
+    return res.status(401).json({ success: false, message: "Invalid or expired token" });
+  }
+};
+
+module.exports = { login, forgot, verifyOtp, resetPassword, me };

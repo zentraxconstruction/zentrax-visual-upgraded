@@ -14,12 +14,24 @@ export function AuthProvider({ children }) {
 
     console.log('[Auth] useEffect: token present on mount (preview):', token ? token.substring(0,20) + '...' : null);
 
+    // Try regular user `/auth/me`, otherwise fallback to admin `/admin/auth/me`
     api.get("/auth/me")
       .then((data) => {
         if (data.success) setUser(data.user);
-        else              clearAuth();
+        else throw new Error(data.message || "No user");
       })
-      .catch(clearAuth)
+      .catch(async (err) => {
+        try {
+          const a = await api.get("/admin/auth/me");
+          if (a.success && a.admin) {
+            setUser({ id: a.admin._id || a.admin.id, name: a.admin.name || "Admin", email: a.admin.email, role: a.admin.role || "admin" });
+            return;
+          }
+        } catch (_) {
+          /* fallback */
+        }
+        clearAuth();
+      })
       .finally(() => setLoading(false));
   }, [token]); // eslint-disable-line
 
