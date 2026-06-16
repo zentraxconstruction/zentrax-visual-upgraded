@@ -14,7 +14,7 @@ function useZentraxEffects() {
 			}
 			document.body.classList.remove("loading");
 			revealInit();
-		}, 2400);
+		}, 4000);
 		cleanupFns.push(() => window.clearTimeout(loaderTimer));
 
 		const navbar = document.getElementById("navbar");
