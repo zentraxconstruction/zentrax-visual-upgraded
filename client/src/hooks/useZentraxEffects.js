@@ -8,14 +8,62 @@ function useZentraxEffects() {
 
 		const loader = document.getElementById("loader");
 		document.body.classList.add("loading");
-		const loaderTimer = window.setTimeout(() => {
+
+		let isLoaderHidden = false;
+		let revealStarted = false;
+		const effectStartTs = Date.now();
+		let hideTimer = null;
+		let revealTimer = null;
+
+		const startReveal = () => {
+			if (revealStarted) {
+				return;
+			}
+			revealStarted = true;
+			revealInit();
+		};
+
+		const hideLoader = () => {
+			if (isLoaderHidden) {
+				return;
+			}
+			isLoaderHidden = true;
 			if (loader) {
 				loader.classList.add("hidden");
 			}
 			document.body.classList.remove("loading");
-			revealInit();
-		}, 4000);
-		cleanupFns.push(() => window.clearTimeout(loaderTimer));
+
+			// Delay reveal slightly so content animations start after loader fade.
+			revealTimer = window.setTimeout(startReveal, 120);
+		};
+
+		const queueHideAfterMin = () => {
+			const minLoaderMs = 1400;
+			const elapsed = Date.now() - effectStartTs;
+			const waitFor = Math.max(0, minLoaderMs - elapsed);
+			hideTimer = window.setTimeout(hideLoader, waitFor);
+		};
+
+		const onPageLoaded = () => queueHideAfterMin();
+
+		if (document.readyState === "complete") {
+			queueHideAfterMin();
+		} else {
+			window.addEventListener("load", onPageLoaded, { once: true });
+			cleanupFns.push(() => window.removeEventListener("load", onPageLoaded));
+		}
+
+		// Fallback: never keep the loader beyond this duration.
+		const loaderFallbackTimer = window.setTimeout(hideLoader, 4500);
+		cleanupFns.push(() => {
+			window.clearTimeout(loaderFallbackTimer);
+			if (hideTimer) {
+				window.clearTimeout(hideTimer);
+			}
+			if (revealTimer) {
+				window.clearTimeout(revealTimer);
+			}
+		});
 
 		const navbar = document.getElementById("navbar");
 		const navLinks = document.querySelectorAll(".nav-links a");
