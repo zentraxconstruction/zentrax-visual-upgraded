@@ -30,10 +30,6 @@ function PropertiesSection() {
                 alt="Properties for lease"
                 onError={(e) => { e.target.src = "property.jpg"; }}
               />
-              <div className="prop-badge">
-                <span className="prop-badge-dot"></span>
-                Available for Lease
-              </div>
             </div>
           </div>
           <div className="prop-details-col">
@@ -82,7 +78,7 @@ function PropertiesSection() {
                 </div>
                 <div>
                   <span className="prop-feat-label">Availability</span>
-                  <span className="prop-feat-val">Immediate</span>
+                  <span className="prop-feat-val">Contact for details</span>
                 </div>
               </div>
               <div className="prop-feat">
@@ -149,15 +145,11 @@ function PropertiesSection() {
           <div className="prop-img-col">
             <div className="prop-img-wrap">
               <img src="/images/coming-soon-1.jpeg" alt="Coming Soon property" />
-              <div className="prop-badge">
-                <span className="prop-badge-dot"></span>
-                Coming Soon
-              </div>
             </div>
           </div>
           <div className="prop-details-col">
             <div className="prop-tag">Lease Opportunity</div>
-            <h3 className="prop-name">Coming Soon</h3>
+            <h3 className="prop-name">Lease Opportunity</h3>
             <p className="prop-location">
               <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
@@ -179,7 +171,7 @@ function PropertiesSection() {
                 </div>
                 <div>
                   <span className="prop-feat-label">Status</span>
-                  <span className="prop-feat-val">Coming Soon</span>
+                  <span className="prop-feat-val">Details Soon</span>
                 </div>
               </div>
               <div className="prop-feat">
@@ -203,7 +195,7 @@ function PropertiesSection() {
                 </div>
                 <div>
                   <span className="prop-feat-label">Availability</span>
-                  <span className="prop-feat-val">Details Soon</span>
+                  <span className="prop-feat-val">Contact for details</span>
                 </div>
               </div>
               <div className="prop-feat">

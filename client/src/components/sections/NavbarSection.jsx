@@ -1,7 +1,39 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 
+const getScrollPosition = (target) => {
+  const targetScrollTop = target instanceof HTMLElement ? target.scrollTop : 0;
+
+  return Math.max(
+    targetScrollTop,
+    window.scrollY || 0,
+    window.pageYOffset || 0,
+    document.documentElement.scrollTop || 0,
+    document.body.scrollTop || 0,
+  );
+};
+
 function NavbarSection() {
+  const [isLogoVisible, setIsLogoVisible] = useState(
+    () => typeof window === "undefined" || window.scrollY <= 20,
+  );
+
+  useEffect(() => {
+    const updateLogoVisibility = (event) => {
+      setIsLogoVisible(getScrollPosition(event?.target) <= 20);
+    };
+
+    updateLogoVisibility();
+    window.addEventListener("scroll", updateLogoVisibility, { passive: true });
+    document.addEventListener("scroll", updateLogoVisibility, { capture: true, passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", updateLogoVisibility);
+      document.removeEventListener("scroll", updateLogoVisibility, true);
+    };
+  }, []);
+
   return (
     <>
       <a
@@ -19,7 +51,7 @@ function NavbarSection() {
 
       <nav id="navbar">
         <div className="nav-container">
-          <a href="#hero" className="nav-logo">
+          <a href="#hero" className={`nav-logo${isLogoVisible ? "" : " nav-logo--hidden"}`}>
             <div className="nav-logo-bg">
               <img src={logo} alt="Zentrax" />
               <div className="nav-brand-text">
