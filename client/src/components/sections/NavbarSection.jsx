@@ -15,13 +15,14 @@ const getScrollPosition = (target) => {
 };
 
 function NavbarSection() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLogoVisible, setIsLogoVisible] = useState(
-    () => typeof window === "undefined" || window.scrollY <= 20,
+    () => typeof window === "undefined" || window.scrollY <= 2,
   );
 
   useEffect(() => {
     const updateLogoVisibility = (event) => {
-      setIsLogoVisible(getScrollPosition(event?.target) <= 20);
+      setIsLogoVisible(getScrollPosition(event?.target) <= 2);
     };
 
     updateLogoVisibility();
@@ -51,7 +52,7 @@ function NavbarSection() {
 
       <nav id="navbar">
         <div className="nav-container">
-          <a href="#hero" className={`nav-logo${isLogoVisible ? "" : " nav-logo--hidden"}`}>
+          <a href="#hero" className={`nav-logo desktop-logo-only${isLogoVisible ? "" : " nav-logo--hidden"}`}>
             <div className="nav-logo-bg">
               <img src={logo} alt="Zentrax" />
               <div className="nav-brand-text">
@@ -80,31 +81,25 @@ function NavbarSection() {
               <Link to="/login">Login</Link>
             </li>
             <li>
-              <Link to="/signup" className="nav-cta">
-                Signup
-              </Link>
-            </li>
-            <li>
               <a href="#contact" className="nav-cta">
                 Contact
               </a>
             </li>
           </ul>
-          <button className="hamburger" id="hamburger" aria-label="Menu">
+          <button className={`hamburger${isMenuOpen ? " open" : ""}`} aria-label="Menu" aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen((open) => !open)}>
             <span></span>
             <span></span>
             <span></span>
           </button>
         </div>
-        <div className="mobile-menu" id="mobileMenu">
-          <a href="#hero">Home</a>
-          <a href="#philosophy">Philosophy</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#capabilities">Capabilities</a>
-          <a href="#properties">Properties</a>
-          <a href="/login">Login</a>
-          <a href="/signup">Signup</a>
-          <a href="#contact">Contact</a>
+        <div className={`mobile-menu${isMenuOpen ? " open" : ""}`}>
+          <a href="#hero" onClick={() => setIsMenuOpen(false)}>Home</a>
+          <a href="#philosophy" onClick={() => setIsMenuOpen(false)}>Philosophy</a>
+          <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</a>
+          <a href="#capabilities" onClick={() => setIsMenuOpen(false)}>Capabilities</a>
+          <a href="#properties" onClick={() => setIsMenuOpen(false)}>Properties</a>
+          <Link to="/login" onClick={() => setIsMenuOpen(false)}>Login</Link>
+          <a href="#contact" className="nav-cta" onClick={() => setIsMenuOpen(false)}>Contact</a>
         </div>
       </nav>
     </>

@@ -48,9 +48,6 @@ export default function HomePage() {
             <Link to="/login" style={{ minWidth: 150, padding: "1rem 1.8rem", borderRadius: 9999, background: "#c9a84c", color: "#0a0a0a", fontWeight: 700, textDecoration: "none" }}>
               Login
             </Link>
-            <Link to="/signup" style={{ minWidth: 150, padding: "1rem 1.8rem", borderRadius: 9999, background: "transparent", border: "1px solid rgba(255,255,255,0.16)", color: "#f7f1e8", fontWeight: 700, textDecoration: "none" }}>
-              Signup
-            </Link>
           </div>
 
           <div style={{ marginTop: "3rem", color: "#aaa", fontSize: "0.95rem" }}>
@@ -75,7 +72,7 @@ export default function HomePage() {
             <li>Labour Support</li>
           </ul>
           <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
-            <Link to="/signup" style={{ background: '#d4af37', color: '#081015', padding: '8px 12px', borderRadius: 8, textDecoration: 'none', fontWeight: 700 }}>Hire Workers</Link>
+            <Link to="/landing#contact" style={{ background: '#d4af37', color: '#081015', padding: '8px 12px', borderRadius: 8, textDecoration: 'none', fontWeight: 700 }}>Hire Workers</Link>
             <Link to="/landing#contact" style={{ background: 'transparent', color: '#d4af37', padding: '8px 12px', borderRadius: 8, border: '1px solid rgba(212,175,55,0.18)', textDecoration: 'none' }}>Contact</Link>
           </div>
         </div>

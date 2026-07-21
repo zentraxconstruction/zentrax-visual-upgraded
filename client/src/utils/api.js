@@ -117,10 +117,17 @@ class ApiClient {
    */
   async put(endpoint, body, options = {}) {
     const url = `${this.baseURL}${endpoint}`;
+    const isFormData = body instanceof FormData;
+    const headers = isFormData
+      ? {
+          ...(this.getToken() && { "x-auth-token": this.getToken(), Authorization: `Bearer ${this.getToken()}` }),
+          ...options.headers,
+        }
+      : this.getHeaders(options.headers);
     const response = await fetch(url, {
       method: "PUT",
-      headers: this.getHeaders(options.headers),
-      body: JSON.stringify(body),
+      headers,
+      body: isFormData ? body : JSON.stringify(body),
       ...options,
     });
     return this.handleResponse(response);
@@ -144,10 +151,17 @@ class ApiClient {
    */
   async patch(endpoint, body, options = {}) {
     const url = `${this.baseURL}${endpoint}`;
+    const isFormData = body instanceof FormData;
+    const headers = isFormData
+      ? {
+          ...(this.getToken() && { "x-auth-token": this.getToken(), Authorization: `Bearer ${this.getToken()}` }),
+          ...options.headers,
+        }
+      : this.getHeaders(options.headers);
     const response = await fetch(url, {
       method: "PATCH",
-      headers: this.getHeaders(options.headers),
-      body: JSON.stringify(body),
+      headers,
+      body: isFormData ? body : JSON.stringify(body),
       ...options,
     });
     return this.handleResponse(response);

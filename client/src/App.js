@@ -13,6 +13,7 @@ import AdminForgotPassword from "./pages/AdminForgotPassword";
 import ManagerDashboard from "./pages/ManagerDashboard";
 import Layout from "./components/layout/Layout";
 import ClientDashboard  from "./pages/ClientDashboard";
+import PropertiesPage from "./pages/PropertiesPage";
 import NotFound         from "./pages/NotFound";
 
 // ── Protected Route ───────────────────────────────────────────────────────────
@@ -57,7 +58,8 @@ export default function App() {
           <Route path="/login"  element={<LoginPage />} />
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/admin/forgot" element={<AdminForgotPassword />} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/properties" element={<PropertiesPage />} />
+          <Route path="/signup" element={<Navigate to="/login" replace />} />
 
           {/* Dashboard shortcut — redirects by role */}
           <Route path="/dashboard" element={<RoleRedirect />} />

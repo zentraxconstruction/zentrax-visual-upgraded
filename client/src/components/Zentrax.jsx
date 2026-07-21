@@ -46,7 +46,7 @@ function Zentrax() {
             <li>Labour Support</li>
           </ul>
           <div style={{ marginTop: 12, display: 'flex', gap: 8 }}>
-            <a href="/signup" style={{ background: '#d4af37', color: '#081015', padding: '8px 12px', borderRadius: 8, textDecoration: 'none', fontWeight: 700 }}>Hire Workers</a>
+            <a href="#contact" style={{ background: '#d4af37', color: '#081015', padding: '8px 12px', borderRadius: 8, textDecoration: 'none', fontWeight: 700 }}>Hire Workers</a>
             <a href="#contact" style={{ background: 'transparent', color: '#d4af37', padding: '8px 12px', borderRadius: 8, border: '1px solid rgba(212,175,55,0.18)', textDecoration: 'none' }}>Contact</a>
           </div>
         </div>

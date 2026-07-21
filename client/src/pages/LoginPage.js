@@ -98,7 +98,6 @@ export default function LoginPage() {
 
 
         <div className="login-footer" style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-          <Link to="/signup">Create an account</Link>
           <Link to="/">← Back to website</Link>
         </div>
       </div>

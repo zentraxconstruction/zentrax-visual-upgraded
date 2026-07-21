@@ -10,9 +10,9 @@ const OTP_TTL_MS = 5 * 60 * 1000; // 5 minutes
 const signToken = (id) => jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: process.env.SMTP_SECURE === "true",
+  host: process.env.SMTP_HOST || "smtp.gmail.com",
+  port: Number(process.env.SMTP_PORT || 587),
+  secure: (process.env.SMTP_SECURE || "false") === "true",
   auth: process.env.SMTP_USER ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS } : undefined,
 });
 
@@ -52,12 +52,17 @@ const forgot = async (req, res) => {
     const expiresAt = new Date(Date.now() + OTP_TTL_MS);
     await AdminOtp.create({ email, otp, expiresAt });
 
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM || `Zentrax <${process.env.SMTP_USER || ADMIN_EMAIL}>`,
-      to: email,
-      subject: "Zentrax Admin OTP",
-      text: `Your Zentrax admin OTP is: ${otp}. It expires in 5 minutes.`,
-    });
+    try {
+      await transporter.sendMail({
+        from: process.env.SMTP_FROM || `Zentrax <${process.env.SMTP_USER || ADMIN_EMAIL}>`,
+        to: email,
+        subject: "Zentrax Admin Reset Code",
+        text: `Your Zentrax admin reset code is: ${otp}. It expires in 5 minutes.`,
+      });
+    } catch (mailErr) {
+      console.error("Mail send failed", mailErr);
+      return res.status(500).json({ success: false, message: "Unable to send reset email right now" });
+    }
 
     res.json({ success: true, message: "OTP sent" });
   } catch (err) {
@@ -101,6 +106,7 @@ const resetPassword = async (req, res) => {
     if (!admin) return res.status(400).json({ success: false, message: "Admin not found" });
 
     admin.password = password;
+    admin.markModified("password");
     await admin.save();
 
     res.json({ success: true, message: "Password reset successful" });

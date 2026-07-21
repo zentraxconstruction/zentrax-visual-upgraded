@@ -99,30 +99,7 @@ function useZentraxEffects() {
 		window.addEventListener("scroll", onScroll, { passive: true });
 		cleanupFns.push(() => window.removeEventListener("scroll", onScroll));
 
-		const hamburger = document.getElementById("hamburger");
-		const mobileMenu = document.getElementById("mobileMenu");
-		const onHamburgerClick = () => {
-			if (mobileMenu) {
-				mobileMenu.classList.toggle("open");
-			}
-		};
-
-		if (hamburger) {
-			hamburger.addEventListener("click", onHamburgerClick);
-			cleanupFns.push(() => hamburger.removeEventListener("click", onHamburgerClick));
-		}
-
-		const mobileHandlers = [];
-		if (mobileMenu) {
-			mobileMenu.querySelectorAll("a").forEach((a) => {
-				const closeMenu = () => mobileMenu.classList.remove("open");
-				a.addEventListener("click", closeMenu);
-				mobileHandlers.push(() => a.removeEventListener("click", closeMenu));
-			});
-		}
-		cleanupFns.push(() => mobileHandlers.forEach((fn) => fn()));
-
-		const smoothAnchorHandlers = [];
+const smoothAnchorHandlers = [];
 		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 			const handler = (e) => {
 				const href = anchor.getAttribute("href");
