@@ -15,8 +15,10 @@ connectDB();
 // ── Middleware ────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
-  (process.env.CLIENT_URL || "http://localhost:3000"),
+  process.env.CLIENT_URL || "http://localhost:3000",
+  "http://127.0.0.1:3000",
   "http://localhost:3001",
+  "http://127.0.0.1:3001",
 ];
 
 app.use(cors({
@@ -25,21 +27,16 @@ app.use(cors({
     if (!origin) return callback(null, true);
 
     // Normalize origin by stripping trailing slashes
-    let norm = origin.replace(/\/+$/, "");
+    const norm = origin.replace(/\/+$/, "");
     try {
       const hostname = new URL(norm).hostname;
-      // Allow if exact match, hostname match, or vercel deployments
       if (
         allowedOrigins.includes(norm) ||
-        allowedOrigins.includes(origin) ||
-        allowedOrigins.includes(hostname) ||
-        hostname.endsWith(".vercel.app") ||
-        norm === `http://localhost:${PORT}`
+        hostname.endsWith(".vercel.app")
       ) {
         return callback(null, true);
       }
     } catch (err) {
-      // If origin is malformed, reject
       return callback(new Error(`CORS policy: origin '${origin}' not allowed`));
     }
 
