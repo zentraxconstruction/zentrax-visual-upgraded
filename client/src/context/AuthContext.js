@@ -38,23 +38,26 @@ export function AuthProvider({ children }) {
   const login = useCallback(async (email, password) => {
     email = email?.trim().toLowerCase();
     password = password?.trim();
+
+    if (!email || !password) {
+      throw new Error("Email and password required");
+    }
+
+    const check = await api.get(`/admin/auth/check-email?email=${encodeURIComponent(email)}`);
+    if (check.success && check.exists) {
+      const data = await api.post("/admin/auth/login", { email, password });
+      if (!data.success) throw new Error(data.message);
+      localStorage.setItem("zx_token", data.token);
+      setToken(data.token);
+      setUser({ id: data.id, name: data.name || "Admin", email: data.email, role: data.role });
+      return data.role;
+    }
+
     const data = await api.post("/auth/login", { email, password });
     if (!data.success) throw new Error(data.message);
     localStorage.setItem("zx_token", data.token);
-    console.log('[Auth] login: stored zx_token (preview):', data.token ? data.token.substring(0,20) + '...' : null);
     setToken(data.token);
     setUser({ id: data.id, name: data.name, email: data.email, role: data.role });
-    return data.role;
-  }, []);
-
-  const adminLogin = useCallback(async (email, password) => {
-    email = email?.trim().toLowerCase();
-    password = password?.trim();
-    const data = await api.post("/admin/auth/login", { email, password });
-    if (!data.success) throw new Error(data.message);
-    localStorage.setItem("zx_token", data.token);
-    setToken(data.token);
-    setUser({ id: data.id, name: "Admin", email: data.email, role: data.role });
     return data.role;
   }, []);
 
@@ -74,7 +77,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, login, adminLogin, logout }}>
+    <AuthContext.Provider value={{ user, token, loading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

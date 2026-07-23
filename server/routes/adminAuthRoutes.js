@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const rateLimit = require("express-rate-limit");
-const { body, validationResult } = require("express-validator");
+const { body, query, validationResult } = require("express-validator");
 const ctrl = require("../controllers/adminAuthController");
 const { requireAdminAuth } = require("../middleware/adminAuth");
 
@@ -17,6 +17,17 @@ router.post(
     next();
   },
   ctrl.login
+);
+
+router.get(
+  "/check-email",
+  query("email").isEmail(),
+  (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ success: false, message: "Invalid email" });
+    next();
+  },
+  ctrl.checkEmail
 );
 
 router.get("/me", requireAdminAuth, (req, res) => ctrl.me(req, res));

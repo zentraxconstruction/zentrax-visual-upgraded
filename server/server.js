@@ -17,6 +17,8 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   process.env.CLIENT_URL || "http://localhost:3000",
   "http://127.0.0.1:3000",
+  "http://localhost:5000",
+  "http://127.0.0.1:5000",
   "http://localhost:3001",
   "http://127.0.0.1:3001",
 ];
@@ -26,11 +28,13 @@ app.use(cors({
     // Allow requests with no origin (like mobile apps or curl)
     if (!origin) return callback(null, true);
 
-    // Normalize origin by stripping trailing slashes
+    // Normalize origin by stripping trailing slashes and using URL.origin
     const norm = origin.replace(/\/+$/, "");
     try {
-      const hostname = new URL(norm).hostname;
+      const normalizedOrigin = new URL(norm).origin;
+      const hostname = new URL(normalizedOrigin).hostname;
       if (
+        allowedOrigins.includes(normalizedOrigin) ||
         allowedOrigins.includes(norm) ||
         hostname.endsWith(".vercel.app")
       ) {

@@ -5,8 +5,8 @@ import "./LoginPage.css";
 
 
 export default function LoginPage() {
-  const { user, login, adminLogin } = useAuth();
-  const navigate                     = useNavigate();
+  const { user, login } = useAuth();
+  const navigate         = useNavigate();
 
   const [email,    setEmail]    = useState("");
   const [password, setPassword] = useState("");
@@ -24,14 +24,7 @@ export default function LoginPage() {
       const role = await login(email, password);
       navigate(`/${role}`, { replace: true });
     } catch (err) {
-      // If client auth fails, try admin auth as a fallback
-      try {
-        const role = await adminLogin(email, password);
-        navigate(`/${role}`, { replace: true });
-        return;
-      } catch (adminErr) {
-        setError(adminErr.message || err.message || "Login failed");
-      }
+      setError(err.message || "Login failed");
     } finally {
       setLoading(false);
     }

@@ -41,6 +41,20 @@ const login = async (req, res) => {
   }
 };
 
+const checkEmail = async (req, res) => {
+  let { email } = req.query;
+  email = email?.trim().toLowerCase();
+
+  if (!email) return res.status(400).json({ success: false, message: "Email required" });
+
+  try {
+    const admin = await Admin.findOne({ email });
+    res.json({ success: true, exists: Boolean(admin) });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
 const forgot = async (req, res) => {
   let { email } = req.body;
   email = email?.trim().toLowerCase();
@@ -115,8 +129,6 @@ const resetPassword = async (req, res) => {
   }
 };
 
-module.exports = { login, forgot, verifyOtp, resetPassword };
-
 // GET /api/admin/auth/me
 const me = async (req, res) => {
   // If middleware attached admin to the request, return it; otherwise attempt to read token
@@ -135,4 +147,4 @@ const me = async (req, res) => {
   }
 };
 
-module.exports = { login, forgot, verifyOtp, resetPassword, me };
+module.exports = { login, checkEmail, forgot, verifyOtp, resetPassword, me };
